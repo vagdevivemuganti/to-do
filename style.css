@@ -1,0 +1,120 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  transition: 0.3s ease;
+}
+
+body.light { background: #f2f2f2; color: #000; }
+body.dark { background: #1e1e1e; color: #fff; }
+
+.container {
+  width: 380px;
+  padding: 20px;
+  border-radius: 12px;
+  background: var(--box-bg);
+  box-shadow: 0 0 20px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+
+body.light .container { --box-bg: #fff; }
+body.dark .container { --box-bg: #2c2c2c; }
+
+h1 { text-align: center; margin-bottom: 20px; }
+
+.input-box { display: flex; gap: 10px; }
+
+.input-box input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: var(--input-bg);
+  color: var(--text-color);
+}
+
+body.light .input-box input { --input-bg: #e9e9e9; --text-color: #000; }
+body.dark .input-box input { --input-bg: #3b3b3b; --text-color: #fff; }
+
+.input-box button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.filter {
+  flex: 1;
+  padding: 8px;
+  margin: 0 4px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: #d1d1d1;
+  color: #000;
+}
+
+.filter.active {
+  background: #007bff;
+  color: white;
+}
+
+
+ul { margin-top: 20px; list-style: none; }
+
+li {
+  padding: 12px;
+  background: var(--task-bg);
+  margin-bottom: 12px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body.light li { --task-bg: #e9e9e9; }
+body.dark li { --task-bg: #3b3b3b; }
+
+.task-left { display: flex; align-items: center; gap: 10px; }
+
+.check { font-size: 20px; cursor: pointer; }
+.delete { font-size: 20px; cursor: pointer; color: #ff4d4d; }
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+
+.clear-btn {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  background: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
