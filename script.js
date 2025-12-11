@@ -8,14 +8,14 @@ const clearAll = document.getElementById("clearAll");
 
 body.classList.add("light");
 
-/* THEME TOGGLE */
+
 themeBtn.addEventListener("click", () => {
   const isLight = body.classList.toggle("dark");
   body.classList.toggle("light", !isLight);
   themeBtn.textContent = isLight ? "☀️" : "🌙";
 });
 
-/* SAVE TASKS TO LOCAL STORAGE */
+
 function saveTasks() {
   const tasks = [];
   document.querySelectorAll("li").forEach(li => {
@@ -27,7 +27,7 @@ function saveTasks() {
   localStorage.setItem("todoTasks", JSON.stringify(tasks));
 }
 
-/* LOAD TASKS */
+
 function loadTasks() {
   const tasks = JSON.parse(localStorage.getItem("todoTasks")) || [];
   tasks.forEach(task => createTask(task.text, task.completed));
@@ -69,7 +69,7 @@ function createTask(text, completed = false) {
   saveTasks();
 }
 
-/* ADD USING BUTTON */
+
 addBtn.addEventListener("click", () => {
   if (input.value.trim() !== "") {
     createTask(input.value.trim());
@@ -77,7 +77,7 @@ addBtn.addEventListener("click", () => {
   }
 });
 
-/* ADD USING ENTER KEY */
+
 input.addEventListener("keydown", (e) => {
   if (e.key === "Enter" && input.value.trim() !== "") {
     createTask(input.value.trim());
@@ -85,7 +85,7 @@ input.addEventListener("keydown", (e) => {
   }
 });
 
-/* FILTERS */
+
 filters.forEach(btn => {
   btn.addEventListener("click", () => {
     document.querySelector(".filter.active").classList.remove("active");
@@ -104,7 +104,7 @@ filters.forEach(btn => {
   });
 });
 
-/* CLEAR ALL */
+
 clearAll.addEventListener("click", () => {
   list.innerHTML = "";
   saveTasks();
